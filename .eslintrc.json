@@ -1,3 +1,162 @@
 {
-  "extends": "next/core-web-vitals"
+  "env": {
+    "browser": true,
+    "es2022": true
+  },
+  "extends": [
+    "next/core-web-vitals",
+    "standard-with-typescript",
+    "prettier",
+    "plugin:tailwindcss/recommended"
+  ],
+  "plugins": ["unused-imports", "tailwindcss"],
+  "rules": {
+    /* JSX・TSXファイルで import React from "react"; を記載しなくてもエラーとしない */
+    "react/react-in-jsx-scope": 0,
+
+    /**
+     * コンポーネントのPropsが適切に検証されているか
+     * MEMO： TypeScript化が完了次第trueにする
+     */
+    "react/prop-types": 0,
+
+    /* 型定義はtypeを使用する */
+    "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+
+    /* import文の並び替え */
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          ["parent", "sibling", "index"],
+          "object",
+          "type"
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "newlines-between": "never",
+        "pathGroupsExcludedImportTypes": ["react"],
+        "pathGroups": [
+          { "pattern": "react", "group": "external", "position": "before" },
+          { "pattern": "react*", "group": "external", "position": "before" },
+          { "pattern": "next", "group": "external", "position": "before" },
+          { "pattern": "next*", "group": "external", "position": "before" },
+          {
+            "pattern": "@/constants/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/helpers/**",
+            "group": "internal",
+            "position": "before"
+          },
+          { "pattern": "@/utils", "group": "internal", "position": "before" },
+          {
+            "pattern": "@/utils/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/hooks/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/features/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/components/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/components/ui/**",
+            "group": "internal",
+            "position": "after"
+          }
+        ]
+      }
+    ],
+
+    /* null assertion許可 */
+    "@typescript-eslint/no-non-null-assertion": "off",
+
+    /* 未使用のimport削除 */
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
+      }
+    ],
+
+    /* 改行ルール */
+    "padding-line-between-statements": [
+      "error",
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "return"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "function"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "if"
+      },
+      {
+        "blankLine": "always",
+        "prev": "if",
+        "next": "*"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "block"
+      },
+      {
+        "blankLine": "always",
+        "prev": "block",
+        "next": "*"
+      }
+    ],
+
+    /** カスタムクラスを許可 */
+    "tailwindcss/no-custom-classname": "off",
+
+    /** handleSubmitのvoid returnを許可 */
+    /** https://github.com/orgs/react-hook-form/discussions/8622#discussioncomment-4060570 */
+    "@typescript-eslint/no-misused-promises": [
+      2,
+      {
+        "checksVoidReturn": {
+          "attributes": false
+        }
+      }
+    ],
+
+    /** falsyな値の暗黙的なチェックを許可 */
+    "@typescript-eslint/strict-boolean-expressions": "off"
+  },
+  "parserOptions": {
+    "ecmaVersion": 13
+  },
+  "ignorePatterns": ["**/*.js"]
 }

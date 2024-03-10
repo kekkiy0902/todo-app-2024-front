@@ -1,0 +1,39 @@
+/* LINE Seed - Regular */
+@font-face {
+  font-family: 'LINE Seed';
+  src: url('/fonts/WOFF2/LINESeedJP_OTF_Rg.woff2') format('woff2'),
+    url('/fonts/WOFF/LINESeedJP_OTF_Rg.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* LINE Seed - Thin */
+@font-face {
+  font-family: 'LINE Seed';
+  src: url('/fonts/WOFF2/LINESeedJP_OTF_Th.woff2') format('woff2'),
+    url('/fonts/WOFF/LINESeedJP_OTF_Th.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* LINE Seed - Bold */
+@font-face {
+  font-family: 'LINE Seed';
+  src: url('/fonts/WOFF2/LINESeedJP_OTF_Bd.woff2') format('woff2'),
+    url('/fonts/WOFF/LINESeedJP_OTF_Bd.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* LINE Seed - Extra Bold */
+@font-face {
+  font-family: 'LINE Seed';
+  src: url('/fonts/WOFF2/LINESeedJP_OTF_Eb.woff2') format('woff2'),
+    url('/fonts/WOFF/LINESeedJP_OTF_Eb.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
